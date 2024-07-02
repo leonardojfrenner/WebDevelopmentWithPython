@@ -1,0 +1,230 @@
+/* estilo da pg home */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-toggler {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    margin: 0 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 16px;
+  }
+  
+  .nav-link:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: #90ee90; 
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #77dd77; 
+  }
+  
+  .form-control {
+    width: 100%; 
+    height: 50px; 
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .container {
+    width: 100%;
+    max-width: 800px; 
+    margin: auto; 
+    padding-top: 40px; 
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #003366; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  #btnNaoTemCadastro{
+        font-size: 12px;
+        color: #003366; 
+        text-shadow: 1px 1px 2px rgba(190, 156, 156, 0.3); 
+        display: block;
+        margin-bottom: 5px;
+  }
+  
+  .alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  .alert-group {
+    width: 100%;
+  }
+  label {
+        font-size: 20px;
+        color: #003366; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+        display: block;
+        margin-bottom: 5px;
+      }
+  
+      input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #003366; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    }
+    
+    .card-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px; 
+    }
+    
+    .card {
+        margin: 10px 0; 
+        width: calc(25% - 10px); 
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; 
+    }
+    
+    .card-body {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    
+    .card-text {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .card .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        text-decoration: none;
+        display: block;
+        border-radius: 4px;
+    }
+    
+    .card .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    

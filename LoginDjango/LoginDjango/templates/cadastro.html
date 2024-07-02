@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
+</head>
+<body>
+<div class="carousel-item">
+    {% if error_message %}
+    <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+    </div>
+    {% endif %}
+    <div class="container">
+        <h2>Registro</h2>
+        <form action="{% url 'cadastro' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="registerName">Nome:</label>
+                <input type="text" class="form-control" id="registerName" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email:</label>
+                <input type="email" class="form-control" id="registerEmail" name="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Senha:</label>
+                <input type="password" class="form-control" id="registerPassword" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

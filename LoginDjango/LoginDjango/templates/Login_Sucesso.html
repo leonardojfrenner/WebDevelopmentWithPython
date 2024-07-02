@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Login Bem-Sucedido{% endblock %}
+
+{% block conteudo %}
+
+    <div class="form-container">
+        <h2 class="text-center">Cadastro de Produto</h2>
+        <form method="post" action="{% url 'cadastrar_produto' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nome_produto">Nome do Produto</label>
+                <input type="text" id="nome_produto" name="nome_produto" placeholder="Digite o nome do produto">
+            </div>
+            <div class="form-group">
+                <label for="preco_produto">Preço</label>
+                <input type="number" id="preco_produto" name="preco_produto" placeholder="Digite o preço">
+            </div>
+            <div class="form-group">
+                <label for="descricao_produto">Descrição</label>
+                <textarea id="descricao_produto" name="descricao_produto" rows="3" placeholder="Digite a descrição"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="imagem_produto">Imagem do Produto</label>
+                <input type="file" id="imagem_produto" name="imagem_produto">
+            </div>
+            <button type="submit" class="btn">Cadastrar</button>
+            <a href="{% url 'login_sucesso' %}" class="btn btn-secondary">Voltar</a>
+
+        </form>
+    </div>
+
+    <div class="container product-container">
+        <h1>Admin, {{ nome_usuario }}!</h1>
+    </div>
+
+    <div class="container product-container">
+        <h2 class="text-center">Produtos</h2>
+        <div class="card-group">
+            {% for produto in produtos  %}
+            <div class="card" id="produto{{ forloop.counter }}">
+                    <img src="{{ produto.imagem_set.first.imagem.url }}" class="card-img-top" alt="{{ produto.nome_produto }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome_produto }}</h5>
+                        <p class="card-text">{{ produto.descricao_produto }}</p>
+                        <p class="card-text"><strong>Preço:</strong> R$ {{ produto.preco_produto }}</p>
+                        <!-- <a href="#" id="comprar" class="btn btn-primary">Comprar</a> -->
+                        <a href="{% url 'atualizar_produto' produto.id %}" class="btn btn-secondary">Atualizar</a>
+                        <a href="{% url 'excluir_produto' produto.id %}" class="btn btn-secondary">Excluir</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="container product-container">
+        <p class="text-center">Total de produtos cadastrados: {{ produtos|length }}</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var formContainer = document.querySelector('.form-container');
+            var productContainers = document.querySelectorAll('.product-container');
+
+            formContainer.style.display = 'none';
+            productContainers.forEach(function(container) {
+                container.style.display = 'block';
+            });
+
+            document.getElementById('novoProdutoBtn').addEventListener('click', function() {
+                toggleFormVisibility();
+            });
+
+            document.getElementById('entrarBtn').addEventListener('click', function() {
+                window.location.href = "{% url 'login' %}";
+            });
+
+            document.getElementById('carrinhoBtn').addEventListener('click', function() {
+            });
+        });
+
+        function toggleFormVisibility() {
+            var formContainer = document.querySelector('.form-container');
+            var productContainers = document.querySelectorAll('.product-container');
+            
+            if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+                formContainer.style.display = 'block';
+                productContainers.forEach(function(container) {
+                    container.style.display = 'none';
+                });
+            } else {
+                formContainer.style.display = 'none';
+                productContainers.forEach(function(container) {
+                    container.style.display = 'block';
+                });
+            }
+        }
+    </script>
+{% endblock %}

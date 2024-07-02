@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block titulo %}Atualizar Produto {% endblock %}
+
+{% block conteudo %}
+{% csrf_token %}
+    <h1>Atualizar Produto</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ produto_form.as_p }}
+        {{ imagem_form.as_p }}
+        <button type="submit" class="btn btn-secondary">Atualizar</button>
+        <a href="{% url 'login_sucesso' %}" class="btn btn-secondary">Voltar</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas</title>
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
+</head>
+<body>
+<div class="container product-container">
+    <h1>Bem-vindo!</h1>
+</div>
+<div class="container product-container">
+    <h2 class="text-center">Produtos</h2>
+    <div class="card-group">
+        {% for produto in produtos|slice:":8"%}
+            <div class="card" id="produto{{ forloop.counter }}">
+                <img src="{{ produto.imagem_set.first.imagem.url }}" class="card-img-top" alt="{{ produto.nome_produto }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produto.nome_produto }}</h5>
+                    <p class="card-text">{{ produto.descricao_produto }}</p>
+                    <p class="card-text"><strong>Preço:</strong> R$ {{ produto.preco_produto }}</p>
+                    <a href="#" id="comprar" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
+
